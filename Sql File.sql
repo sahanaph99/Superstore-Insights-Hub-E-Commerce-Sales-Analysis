@@ -1,0 +1,39 @@
+use ecommerce_analysis;
+
+SELECT COUNT(*) FROM  superstore_clean;
+SHOW TABLES;
+DESCRIBE SUPERSTORE_CLEAN;
+
+-- Top 10 Selling Products
+SELECT `Product Name`, SUM(Sales) AS Total_Sales
+FROM superstore_clean
+GROUP BY `Product Name`
+ORDER BY Total_Sales DESC
+LIMIT 10;
+
+-- Sales by Category
+SELECT Category, SUM(Sales) AS Category_Sales, SUM(Profit) AS Category_Profit
+FROM superstore_clean
+GROUP BY Category
+ORDER BY Category_Sales DESC;
+
+-- Monthly Revenue Trend
+SELECT DATE_FORMAT(STR_TO_DATE(`ORDER DATE`, '%Y-%m-%d'),'%Y-%m') AS MONTH,
+SUM(SALES) AS REVENUE 
+FROM SUPERSTORE_CLEAN 
+GROUP BY MONTH
+ORDER BY MONTH;
+
+-- Region-wise Profit
+SELECT REGION , SUM(PROFIT) AS TOTAL_PROFIT, SUM(SALES) AS TOTAL_SALES
+FROM SUPERSTORE_CLEAN
+GROUP BY REGION
+ORDER BY TOTAL_PROFIT DESC;
+
+-- Discount vs Profit by Category
+SELECT CATEGORY,
+ROUND(AVG(DISCOUNT),3) AS AVG_DISCOUNT,
+ROUND(AVG(PROFIT),2) AS AVG_PROFIT
+FROM SUPERSTORE_CLEAN
+GROUP BY CATEGORY
+ORDER BY AVG_DISCOUNT DESC;
