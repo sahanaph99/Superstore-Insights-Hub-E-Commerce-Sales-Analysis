@@ -112,5 +112,5 @@ Data Cleaning · Exploratory Data Analysis · Statistical Correlation Analysis �
 ---
 
 ## 👤 Author
-[Your Name]
-[Your LinkedIn] · [Your GitHub] · [Your Email]
+[Sahana Hadimani]
+[https://www.linkedin.com/in/sahanahadimani] · [github.com/sahanaph99] · [sahanaph99@gamil.com]
